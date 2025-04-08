@@ -4,9 +4,9 @@
 
 ### Dashboard (check ur points) - https://dashboard.gensyn.ai/
 
-1️⃣ Dependencies for WINDOWS & LINUX & VPS & Mac
+1️⃣ Dependencies for WINDOWS & LINUX & Mac
 
-For WSL or VPS
+For WSL
 ```
 sudo apt update && sudo apt upgrade -y
 ```
@@ -20,7 +20,7 @@ brew install git curl wget nano tmux htop jq make gcc autoconf automake pkg-conf
 
 2️⃣ Install Python & Node Js & Yarn & NPM & Pip & Dev. tool
 
-For WSL or VPS
+For WSL
 ```
 sudo apt-get install python3 python3-pip python3-venv python3-dev -y
 ```
@@ -42,23 +42,13 @@ brew install python3 node yarn
 ```
 
 3️⃣ Hugging Face Access Token (Optional)
-[Hugging Face Security Tokens](https://huggingface.co/docs/hub/en/security-tokens)
-- Sign up , verify and create account
-- Go to Menu, click the Access token 
-- Create a Write access token and Done
+
+- Not Needed
 
 4️⃣ Download Some Files
 ```
 git clone https://github.com/gensyn-ai/rl-swarm/
 cd rl-swarm
-```
-
-For VPS Only
-```
-apt install screen -y
-```
-```
-screen -S rlswarm
 ```
 
 5️⃣ Install and Run RL Swarm
@@ -83,67 +73,10 @@ Now It will promt Would you like to push models you train in the RL swarm to the
 
 Take note of Username
 
-## Open Another Window for VPS to Login ur LocalHost
 
-1️⃣ Download Some Dependencies 
-```
-sudo apt install ufw -y
-sudo ufw allow 3000/tcp
-```
+## Open Another Window for WSL to save ur Swarm File
 
-2️⃣ Enable ufw
-```
-sudo ufw enable
-```
-
-3️⃣ Install Cloudflared
-```
-wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
-````
-```
-sudo dpkg -i cloudflared-linux-amd64.deb
-```
-```
-cloudflared --version
-```
-- Make sure your Node is running on port 3000 in Previous Screen
-
-4️⃣ Run the tunnel command
-```
-cloudflared tunnel --url http://localhost:3000
-```
-Access the Link from your local machine
-
-![image](https://github.com/user-attachments/assets/c5bdfec5-123d-4625-8da8-f46269700950)
-
-Then Login > Then Go to the Previous Screen to Check ur Logs
-
-```
-PRESS CTRL+A+D (to run ur node continuously)
-```
-- To check ur Node Again
-```
-screen -r rlswarm
-```
-
-## Open Another Window for VPS & WSL to save ur Swarm File
-
-1️⃣ Save your `swarm.pem` file to your Local Device from VPS (Open Command Prompt or Powershell)
-- From VPS to WSL Home Directory
-```
-scp USERNAME@YOUR_IP:~/rl-swarm/swarm.pem ~/swarm.pem
-```
-- From VPS to Desktop Screen Windows (username has no spaces)
-```
-scp USERNAME@YOUR_VPS_IP:~/rl-swarm/swarm.pem C:\Users\YourUsername\Desktop\
-```
-- From VPS to Desktop Screen Windows (username has spaces)
-```
-scp USERNAME@YOUR_VPS_IP:~/rl-swarm/swarm.pem "/mnt/c/Users/Your Username/Desktop/"
-```
-Replace ur "USERNAME" & "YOUR_IP" with your actual VPS Username & IP u got already. Replace YourUsername or Your Username with your actual Windows username
-
-2️⃣ Save your `swarm.pem` file to your Desktop screen on your PC from WSL (Open WSL)
+1️⃣ Save your `swarm.pem` file to your Desktop screen on your PC from WSL (Open WSL)
 - username has no spaces
 ```
 cp ~/rl-swarm/swarm.pem /mnt/c/Users/YourUsername/Desktop/
